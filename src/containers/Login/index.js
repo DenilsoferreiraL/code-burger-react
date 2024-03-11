@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from "react-hook-form"
 import * as Yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup"
+import api from '../../services/api'
 
 
 
@@ -31,7 +32,13 @@ function Login() {
         resolver: yupResolver(schema),
     })
 
-    const onSubmit = data => console.log(data)
+    const onSubmit = async clientData => {
+        const response = await api.post('sessions', {
+            email: clientData.email,
+            password: clientData.password
+        })
+        console.log(response)
+    }
 
     return (
         <BackgroundLogin>
