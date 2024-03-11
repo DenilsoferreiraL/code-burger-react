@@ -17,9 +17,9 @@ justify-content: center;
 align-items: center;
 color: white;
 
+
 form{
     width: 100%;
-
 }
 
 div{
@@ -55,6 +55,7 @@ export const Label = styled.p`
     color: #ffffff;
     margin:35px 0 10px 0;
 `
+
 export const Input = styled.input`
 max-width: 391px;
 padding-left: 10px;
@@ -65,7 +66,17 @@ border-radius: 5px;
 background: #FFF;
 box-shadow: 3px 3px 10px 0px rgba(74, 144, 226, 0.19);
 font-size: 22px;
+border: ${props => props.error ? '3px solid #CC1717' : 'none'};
 `
+
+export const Error = styled.p`
+font-size: 15px;
+margin-top: 10px;
+line-height: 16px;
+color: #CC1717;
+text-align: center;
+`
+
 export const Button = styled.button`
 margin-top: 42px;
 width: 182.81px;
