@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import * as Yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup"
 import api from '../../services/api'
-
+import Button from '../../components/Button'
 
 
 import {
@@ -11,8 +11,9 @@ import {
     ContainerItens,
     Label,
     Input,
-    Button,
-    Link, ContainerBlur, Error
+    Link,
+    ContainerBlur,
+    Error
 } from './styles'
 
 import Logo from '../../assets/logo.svg'
@@ -58,10 +59,10 @@ function Login() {
                         <Error>{errors.password?.message}</Error>
 
                         <div>
-                            <Button type='submit'>Sign In</Button>
+                            <Button type='submit' style={{ marginTop: 75 }}>Entrar</Button>
                         </div>
                     </form>
-                    <Link>Não possui conta? <a href='https://www.google.com/search?q=tradutor&rlz=1C1CHBD_pt-PTBR1068BR1068&oq=trta&gs_lcrp=EgZjaHJvbWUqEQgBEEUYChg7GIMBGLEDGIAEMg4IABBFGDkYQxiABBiKBTIRCAEQRRgKGDsYgwEYsQMYgAQyDwgCEAAYChiDARixAxiABDIJCAMQABgKGIAEMgkIBBAAGAoYgAQyBwgFEAAYgAQyCAgGEAAYAxgKMg8IBxAAGAoYgwEYsQMYgAQyCQgIEAAYChiABDIPCAkQABgKGIMBGLEDGIAE0gEIMTA1NGowajeoAgCwAgA' target="_blank" rel="noreferrer">Sign Up</a>
+                    <Link>Não possui conta? <a href='https://www.google.com/search?q=tradutor&rlz=1C1CHBD_pt-PTBR1068BR1068&oq=trta&gs_lcrp=EgZjaHJvbWUqEQgBEEUYChg7GIMBGLEDGIAEMg4IABBFGDkYQxiABBiKBTIRCAEQRRgKGDsYgwEYsQMYgAQyDwgCEAAYChiDARixAxiABDIJCAMQABgKGIAEMgkIBBAAGAoYgAQyBwgFEAAYgAQyCAgGEAAYAxgKMg8IBxAAGAoYgwEYsQMYgAQyCQgIEAAYChiABDIPCAkQABgKGIMBGLEDGIAE0gEIMTA1NGowajeoAgCwAgA' target="_blank" rel="noreferrer">Inscrever-se</a>
                     </Link>
                 </ContainerItens>
             </ContainerBlur>

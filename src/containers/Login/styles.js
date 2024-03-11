@@ -77,33 +77,9 @@ color: #CC1717;
 text-align: center;
 `
 
-export const Button = styled.button`
-margin-top: 42px;
-width: 182.81px;
-height: 46px;
-flex-shrink: 0;
-background-color: #FD874C;
-color: #ffffff;
-text-align: center;
-font-size: 18px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-border-radius: 20px;
-border: none;
-cursor: pointer;
-
-&:hover{
-    opacity: 0.8;
-}
-
-&:active{
-    opacity: 0.6;
-}
-`
 export const Link = styled.p`
-margin-top: 30px;
-font-size: 14px;
+margin-top: 35px;
+font-size: 15px;
 font-style: normal;
 font-weight: 300;
 line-height: 16px;
