@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
+import { Link } from 'react-router-dom'
 import * as Yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup"
 import api from '../../services/api'
@@ -12,7 +13,7 @@ import {
     ContainerItens,
     Label,
     Input,
-    Link,
+    SignInLink,
     ContainerBlur,
     Error
 } from './styles'
@@ -76,8 +77,9 @@ function Login() {
                             <Button type='submit' style={{ marginTop: 75 }}>Entrar</Button>
                         </div>
                     </form>
-                    <Link>Não possui conta? <a href='https://www.google.com/search?q=tradutor&rlz=1C1CHBD_pt-PTBR1068BR1068&oq=trta&gs_lcrp=EgZjaHJvbWUqEQgBEEUYChg7GIMBGLEDGIAEMg4IABBFGDkYQxiABBiKBTIRCAEQRRgKGDsYgwEYsQMYgAQyDwgCEAAYChiDARixAxiABDIJCAMQABgKGIAEMgkIBBAAGAoYgAQyBwgFEAAYgAQyCAgGEAAYAxgKMg8IBxAAGAoYgwEYsQMYgAQyCQgIEAAYChiABDIPCAkQABgKGIMBGLEDGIAE0gEIMTA1NGowajeoAgCwAgA' target="_blank" rel="noreferrer">Inscrever-se</a>
-                    </Link>
+                    <SignInLink>Não possui conta?{' '}
+                          <Link style={{ color: 'white'}} to='/cadastro'>Inscrever-se</Link>
+                    </SignInLink>
                 </ContainerItens>
             </ContainerBlur>
         </BackgroundLogin >

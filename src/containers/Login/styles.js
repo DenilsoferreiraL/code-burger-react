@@ -77,28 +77,13 @@ color: #CC1717;
 text-align: center;
 `
 
-export const Link = styled.p`
+export const SignInLink = styled.p`
 margin-top: 35px;
 font-size: 15px;
 font-style: normal;
 font-weight: 300;
 line-height: 16px;
 color:#ffffff;
-
-a{
-    color: #ffffff;
-    margin-left: 5px;
-text-decoration: none;
-cursor: pointer;
-
-&:hover{
-    opacity: 0.8;
-}
-
-&:active{
-    opacity: 0.6;
-}
-}
-
 `
+
 
