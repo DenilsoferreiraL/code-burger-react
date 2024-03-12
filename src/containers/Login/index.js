@@ -20,9 +20,9 @@ import {
 import Logo from '../../assets/logo.svg'
 
 function Login() {
-    const users = useUser()
+    const { putUserData, userData } = useUser()
 
-    console.log(users)
+
 
     const schema = Yup.object().shape({
         email: Yup.string().email("Digite um e-mail válido.").required("O e-mail é obrigatório."),
@@ -39,7 +39,7 @@ function Login() {
 
     const onSubmit = async clientData => {
 
-        const response = await toast.promise(
+        const { data } = await toast.promise(
             api.post('sessions', {
                 email: clientData.email,
                 password: clientData.password
@@ -51,7 +51,8 @@ function Login() {
             }
         )
 
-        console.log(response)
+        putUserData(data)
+        console.log(userData)
     }
 
     return (
