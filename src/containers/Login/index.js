@@ -21,7 +21,7 @@ import Logo from '../../assets/logo.svg'
 
 function Login() {
     const { putUserData, userData } = useUser()
-
+    console.log(userData)
 
 
     const schema = Yup.object().shape({
@@ -52,7 +52,7 @@ function Login() {
         )
 
         putUserData(data)
-        console.log(userData)
+        // console.log(userData)
     }
 
     return (
