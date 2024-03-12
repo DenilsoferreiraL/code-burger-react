@@ -14,7 +14,7 @@ export const UserProvider = ({ children }) => {
     //Recuperar dados do localStorage
     useEffect(() => {
         const loadUserData = async () => {
-            const clientInfo = await localStorage.getItem('codeburger: userData')
+            const clientInfo = await localStorage.getItem('codeburger: userData') 
             // Se encontrar o cadastro, carrega os dados
             if (clientInfo) {
                 setUserData(JSON.parse(clientInfo))
