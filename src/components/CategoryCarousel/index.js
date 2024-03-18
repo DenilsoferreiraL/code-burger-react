@@ -1,19 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Category from '../../assets/name-category.svg'
 import api from '../../services/api'
+import Carousel from 'react-elastic-carousel'
 
 import {
     Container,
-    CategoryImg
+    CategoryImg,
+
 } from './styles'
 
 
 function CategoryCarousel() {
+    const [categories, setCategories] = useState([])
+
     useEffect(() => {
         async function loadCategories() {
-            const response = await api.get('categories')
-            console.log(response)
+
+            const { data } = await api.get('categories')
+
+            setCategories(data)
         }
         loadCategories()
     }, [])
@@ -21,7 +27,16 @@ function CategoryCarousel() {
     return (
         <Container>
             <CategoryImg src={Category} alt='Logo categoria' />
-        </Container>
+            <Carousel itemsToShow={1}>
+                {
+                    categories && categories.map(category => (
+                        <div div key={category.id} >
+                            <img src={category.url} alt='Imagem da catetgoria' />
+                            <button src={category.name}></button>
+                        </div>
+                    ))}
+            </Carousel>
+        </Container >
     )
 }
 
