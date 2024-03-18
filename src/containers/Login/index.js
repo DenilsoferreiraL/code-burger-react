@@ -53,7 +53,7 @@ function Login() {
         )
 
         putUserData(data)
-        // console.log(userData)
+        
     }
 
     return (
@@ -78,7 +78,7 @@ function Login() {
                         </div>
                     </form>
                     <SignInLink>Não possui conta?{' '}
-                          <Link style={{ color: 'white'}} to='/cadastro'>Inscrever-se</Link>
+                        <Link style={{ color: 'white' }} to='/cadastro'>Inscrever-se</Link>
                     </SignInLink>
                 </ContainerItens>
             </ContainerBlur>
