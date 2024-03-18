@@ -1,18 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import Category from '../../assets/name-category.svg'
-
+import api from '../../services/api'
 
 import {
     Container,
-    HomeImg
+    CategoryImg
 } from './styles'
 
 
 function CategoryCarousel() {
+    useEffect(() => {
+        async function loadCategories() {
+            const response = await api.get('categories')
+            return response
+        }
+        loadCategories()
+    }, [])
+
     return (
         <Container>
-            <HomeImg>{Category}</HomeImg>
+            <CategoryImg src={Category} alt='Logo categoria' />
         </Container>
     )
 }
