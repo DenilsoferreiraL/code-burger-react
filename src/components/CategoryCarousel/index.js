@@ -13,7 +13,7 @@ function CategoryCarousel() {
     useEffect(() => {
         async function loadCategories() {
             const response = await api.get('categories')
-            return response
+            console.log(response)
         }
         loadCategories()
     }, [])

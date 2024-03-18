@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
-import { Link } from 'react-router-dom'
+import { Link, } from 'react-router-dom'
 import * as Yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup"
 import api from '../../services/api'
@@ -19,8 +19,12 @@ import {
 } from './styles'
 
 import Logo from '../../assets/logo.svg'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+
 
 function Login() {
+    const history = useHistory()
+
     const { putUserData, userData } = useUser()
     console.log(userData)
 
@@ -53,7 +57,13 @@ function Login() {
         )
 
         putUserData(data)
-        
+
+        setTimeout(() => {
+            history.push('/')
+        }, 1000);
+
+
+
     }
 
     return (
