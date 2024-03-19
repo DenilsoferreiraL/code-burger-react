@@ -57,13 +57,18 @@ line-height: normal;
 border-radius: 20px;
 border: none;
 cursor: pointer;
+transition: all 0.1s ease-in-out;
 
 &:hover{
-    opacity: 0.8;
+   
+      background-color: #efefef;
+      color: #FD874C;
 }
 
 &:active{
     opacity: 0.6;
+    color: #000;
+    transform: scale(1.2)
 }
 `
 

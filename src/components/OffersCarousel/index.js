@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Offers from '../../assets/name-offer.svg'
 import api from '../../services/api'
 import Carousel from 'react-elastic-carousel'
-
+import formatCurrency from '../../utils/formatCurrency'
 
 import {
     Container,
@@ -20,8 +20,13 @@ function OffersCarousel() {
 
     useEffect(() => {
         async function loadOffers() {
+
             const { data } = await api.get('products')
-            const onlyOffers = data.filter(product => product.offer)
+
+            const onlyOffers = data.filter(product => product.offer).map(product => {
+                return { ...product, formatedPrice: formatCurrency(product.price) }
+            })
+
 
             setOffers(onlyOffers)
         }
@@ -44,7 +49,7 @@ function OffersCarousel() {
                         <ContainerItens div key={product.id} >
                             <Image src={product.url} alt='Imagem da oferta' />
                             <p>{product.name}</p>
-                            <p>R$ {product.price}</p>
+                            <p>{product.formatedPrice}</p>
                             <Button>Peça agora</Button>
                         </ContainerItens>
                     ))}

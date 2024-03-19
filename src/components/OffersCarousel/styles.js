@@ -52,7 +52,7 @@ border-radius: 10px;
 margin-bottom: 16px;
 `
 export const Button = styled.button`
-margin: 16px 0;
+margin: 20px 0;
 padding: 21px 48px;
 width: 100%;
 flex-shrink: 0;
@@ -66,13 +66,18 @@ line-height: normal;
 border-radius: 20px;
 border: none;
 cursor: pointer;
+transition: all 0.1s ease-in-out;
 
 &:hover{
-    opacity: 0.8;
+
+      background-color: #ffffff;
+      color: #FD874C;
 }
 
 &:active{
     opacity: 0.6;
+    color:  #000;;
+    transform: scale(1.2)
 }
 `
 
