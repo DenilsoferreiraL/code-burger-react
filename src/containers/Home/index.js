@@ -6,6 +6,7 @@ import {
     ContainerBackgroud,
     HomeImg
 } from './styles'
+import OffersCarousel from '../../components/OffersCarousel'
 
 
 function Home() {
@@ -13,6 +14,7 @@ function Home() {
         <ContainerBackgroud>
             <HomeImg src={HomeLogo} alt='Logo Home' />
             <CategoryCarousel />
+            <OffersCarousel />
         </ContainerBackgroud>
     )
 }
