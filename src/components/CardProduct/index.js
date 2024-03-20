@@ -1,19 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Button from '../Button'
-
-
+import { Button } from '../Button'
 
 import {
-    Container,
-    Image,
-    ProductName,
-    ProductPrice,
+    Container, Image, ProductName, ProductPrice
 } from './styles'
 
 
-function CardProduct({ product }) {
+export function CardProduct({ product }) {
 
     return (
         <Container>
@@ -28,7 +23,7 @@ function CardProduct({ product }) {
 
 }
 
-export default CardProduct
+
 
 
 CardProduct.propTypes = {

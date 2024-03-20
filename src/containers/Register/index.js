@@ -1,11 +1,14 @@
 import React from 'react'
+import api from '../../services/api'
+import * as Yup from 'yup'
+
 import { useForm } from "react-hook-form"
 import { Link } from 'react-router-dom'
-import * as Yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup"
-import api from '../../services/api'
-import Button from '../../components/Button'
 import { toast } from 'react-toastify';
+
+import {Button} from '../../components'
+import Logo from '../../assets/logo.svg'
 
 import {
     BackgroundLogin,
@@ -17,9 +20,8 @@ import {
     Error
 } from './styles'
 
-import Logo from '../../assets/logo.svg'
 
-function Register() {
+export function Register() {
 
     const schema = Yup.object().shape({
         name: Yup.string().required('O seu nome é obrigatório.'),
@@ -102,4 +104,3 @@ function Register() {
         </BackgroundLogin >
     )
 }
-export default Register

@@ -1,9 +1,9 @@
 import React from 'react'
+import * as Yup from 'yup'
+import api from '../../services/api'
 import { useForm } from "react-hook-form"
 import { Link, } from 'react-router-dom'
-import * as Yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup"
-import api from '../../services/api'
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import { useUser } from '../../hooks/UserContext'
@@ -18,11 +18,11 @@ import {
     Error
 } from './styles'
 
-import Button from '../../components/Button'
+import {Button} from '../../components'
 import Logo from '../../assets/logo.svg'
 
 
-function Login() {
+export function Login() {
     const history = useHistory()
 
     const { putUserData, userData } = useUser()
@@ -97,4 +97,3 @@ function Login() {
         </BackgroundLogin >
     )
 }
-export default Login

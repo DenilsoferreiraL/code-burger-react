@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../services/api'
 
-import CardProduct from '../../components/CardProduct'
+import { CardProduct } from '../../components'
 import ProductsLogo from '../../assets/background-product.svg'
 import formatCurrency from '../../utils/formatCurrency'
 
@@ -10,11 +10,12 @@ import {
     ContainerBackgroud,
     ProductImage,
     CategoryButton,
-    CategoriesMenu, ProductsContainer
+    CategoriesMenu,
+    ProductsContainer
 } from './styles'
 
 
-function Products() {
+export function Products() {
     const [categories, setCategories] = useState([])
     const [products, setProducts] = useState([])
     const [filteredProducts, setfilteredProducts] = useState([])
@@ -59,7 +60,7 @@ function Products() {
             <ProductImage src={ProductsLogo} alt='Logo Home' />
             <CategoriesMenu>
                 {categories && categories.map(category =>
-                    <CategoryButton type="button" isActiveCategory={activeCategories === category.id} onClick={() => { setActiveCategories(category.id) }} key={category.id}>{category.name}</CategoryButton>
+                    <CategoryButton type="button" isactivecategory={activeCategories === category.id ? "true" : "false"} onClick={() => { setActiveCategories(category.id) }} key={category.id}>{category.name}</CategoryButton>
                 )}
             </CategoriesMenu>
             <ProductsContainer>
@@ -70,5 +71,3 @@ function Products() {
         </ContainerBackgroud>
     )
 }
-
-export default Products

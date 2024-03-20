@@ -15,7 +15,7 @@ import {
 } from './styles'
 
 
-function CategoryCarousel() {
+export function CategoryCarousel() {
     const [categories, setCategories] = useState([])
 
     useEffect(() => {
@@ -38,7 +38,7 @@ function CategoryCarousel() {
     return (
         <Container>
             <CategoryImg src={Category} alt='Logo categoria' />
-            <Carousel itemsToShow={5} style={{ width: '90%'}} breakPoints={breakPoints}>
+            <Carousel itemsToShow={5} style={{ width: '90%' }} breakPoints={breakPoints}>
                 {
                     categories && categories.map(category => (
                         <ContainerItens div key={category.id} >
@@ -51,4 +51,3 @@ function CategoryCarousel() {
     )
 }
 
-export default CategoryCarousel

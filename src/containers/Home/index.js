@@ -1,15 +1,15 @@
 import React from 'react'
+
 import HomeLogo from '../../assets/background-home-page.svg'
-import CategoryCarousel from '../../components/CategoryCarousel'
+import { CategoryCarousel, OffersCarousel } from '../../components'
+
 
 import {
     ContainerBackgroud,
     HomeImg
 } from './styles'
-import OffersCarousel from '../../components/OffersCarousel'
 
-
-function Home() {
+export function Home() {
     return (
         <ContainerBackgroud>
             <HomeImg src={HomeLogo} alt='Logo Home' />
@@ -19,4 +19,3 @@ function Home() {
     )
 }
 
-export default Home
