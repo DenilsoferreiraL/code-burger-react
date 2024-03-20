@@ -3,6 +3,7 @@ import api from '../../services/api'
 
 import CardProduct from '../../components/CardProduct'
 import ProductsLogo from '../../assets/background-product.svg'
+import formatCurrency from '../../utils/formatCurrency'
 
 
 import {
@@ -28,11 +29,13 @@ function Products() {
         }
 
         async function loadProducts() {
-            const { data } = await api.get('products')
+            const { data: allProduct } = await api.get('products')
 
+           const newProducts = allProduct.map(product => {
+                return { ...product, formatedPrice: formatCurrency(product.price) }
+            })
 
-
-            setProducts(data)
+            setProducts(newProducts)
         }
 
         loadCategories()

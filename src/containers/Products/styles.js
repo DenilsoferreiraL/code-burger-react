@@ -28,5 +28,10 @@ transition: all 0.2 ease -in -out;
 `
 
 export const ProductsContainer = styled.div`
-
+display: grid;
+margin-top: 20px;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+padding: 40px;
+justify-items: center;
 `
