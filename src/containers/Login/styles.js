@@ -38,10 +38,9 @@ margin-top: 50px;
 `
 
 export const ContainerBlur = styled.div`
-width: 1000px;
-height: 100%;
-    background-color:rgba(0, 0, 0, 0.7); /* cor de fundo com transparência */
-    backdrop-filter: blur(2px); 
+width: 100vw;
+height: 100vh;
+    background-color:rgba(0, 0, 0, 0.6); /* cor de fundo com transparência */
     display: flex;
     justify-content: center;
 

@@ -17,6 +17,7 @@ import {
 function Products() {
     const [categories, setCategories] = useState([])
     const [products, setProducts] = useState([])
+    const [filteredProducts, setfilteredProducts] = useState([])
     const [activeCategories, setActiveCategories] = useState(0)
 
     useEffect(() => {
@@ -31,7 +32,7 @@ function Products() {
         async function loadProducts() {
             const { data: allProduct } = await api.get('products')
 
-           const newProducts = allProduct.map(product => {
+            const newProducts = allProduct.map(product => {
                 return { ...product, formatedPrice: formatCurrency(product.price) }
             })
 
@@ -42,6 +43,17 @@ function Products() {
         loadProducts()
     }, [])
 
+    useEffect(() => {
+        if (activeCategories === 0) {
+            setfilteredProducts(products)
+        } else {
+            const newFilteredProducts = products.filter(product => product.category_id === activeCategories)
+
+            setfilteredProducts(newFilteredProducts)
+        }
+    }, [activeCategories, products])
+
+
     return (
         <ContainerBackgroud>
             <ProductImage src={ProductsLogo} alt='Logo Home' />
@@ -51,7 +63,7 @@ function Products() {
                 )}
             </CategoriesMenu>
             <ProductsContainer>
-                {products && products.map(product =>
+                {filteredProducts && filteredProducts.map(product =>
                     <CardProduct key={product.id} product={product} />
                 )}
             </ProductsContainer>

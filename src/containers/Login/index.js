@@ -4,8 +4,8 @@ import { Link, } from 'react-router-dom'
 import * as Yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup"
 import api from '../../services/api'
-import Button from '../../components/Button'
 import { toast } from 'react-toastify';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import { useUser } from '../../hooks/UserContext'
 
 import {
@@ -18,8 +18,8 @@ import {
     Error
 } from './styles'
 
+import Button from '../../components/Button'
 import Logo from '../../assets/logo.svg'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
 
 function Login() {
@@ -68,30 +68,32 @@ function Login() {
 
     return (
         <BackgroundLogin>
-            <ContainerBlur>
-                <ContainerItens>
-                    <img src={Logo} alt='Logo' />
-                    <h1>Login</h1>
+            <div>
+                <ContainerBlur>
+                    <ContainerItens>
+                        <img src={Logo} alt='Logo' />
+                        <h1>Login</h1>
 
-                    <form noValidate onSubmit={handleSubmit(onSubmit)} >
+                        <form noValidate onSubmit={handleSubmit(onSubmit)} >
 
-                        <Label>Email</Label>
-                        <Input type='email'{...register("email")} error={errors.email?.message} />
-                        <Error>{errors.email?.message}</Error>
+                            <Label>Email</Label>
+                            <Input type='email'{...register("email")} error={errors.email?.message} />
+                            <Error>{errors.email?.message}</Error>
 
-                        <Label>Senha</Label>
-                        <Input type='password' {...register("password")} error={errors.password?.message} />
-                        <Error>{errors.password?.message}</Error>
+                            <Label>Senha</Label>
+                            <Input type='password' {...register("password")} error={errors.password?.message} />
+                            <Error>{errors.password?.message}</Error>
 
-                        <div>
-                            <Button type='submit' style={{ marginTop: 75 }}>Entrar</Button>
-                        </div>
-                    </form>
-                    <SignInLink>Não possui conta?{' '}
-                        <Link style={{ color: 'white' }} to='/cadastro'>Inscrever-se</Link>
-                    </SignInLink>
-                </ContainerItens>
-            </ContainerBlur>
+                            <div>
+                                <Button type='submit' style={{ marginTop: 75 }}>Entrar</Button>
+                            </div>
+                        </form>
+                        <SignInLink>Não possui conta?{' '}
+                            <Link style={{ color: 'white' }} to='/cadastro'>Inscrever-se</Link>
+                        </SignInLink>
+                    </ContainerItens>
+                </ContainerBlur>
+            </div>
         </BackgroundLogin >
     )
 }
