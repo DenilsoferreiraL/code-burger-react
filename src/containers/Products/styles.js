@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerBackgroud = styled.div`
-
+background: #EFEFEF;
 `
 export const ProductImage = styled.img`
 width: 100%;
@@ -25,4 +25,8 @@ color:${props => props.isActiveCategory ? '#FD874C' : ' #9a9a9d'};
 font-size: 17px;
 line-height: 20px;
 transition: all 0.2 ease -in -out;
+`
+
+export const ProductsContainer = styled.div`
+
 `
