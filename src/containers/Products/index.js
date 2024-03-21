@@ -60,7 +60,7 @@ export function Products() {
             <ProductImage src={ProductsLogo} alt='Logo Home' />
             <CategoriesMenu>
                 {categories && categories.map(category =>
-                    <CategoryButton type="button" isactivecategory={activeCategories === category.id ? "true" : "false"} onClick={() => { setActiveCategories(category.id) }} key={category.id}>{category.name}</CategoryButton>
+                    <CategoryButton type="button" isActiveCategory={activeCategories === category.id} onClick={() => { setActiveCategories(category.id) }} key={category.id}>{category.name}</CategoryButton>
                 )}
             </CategoriesMenu>
             <ProductsContainer>
