@@ -1,7 +1,7 @@
 import React from 'react'
 
 import CartLogo from '../../assets/background-checkout.svg'
-// import { CategoryCarousel, OffersCarousel } from '../../components'
+import { CartItems } from '../../components'
 
 
 import {
@@ -13,6 +13,7 @@ export function Cart() {
     return (
         <ContainerBackgroud>
             <CartImg src={CartLogo} />
+            <CartItems />
         </ContainerBackgroud>
     )
 }

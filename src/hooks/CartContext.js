@@ -28,7 +28,6 @@ export const CardProvider = ({ children }) => {
     }
 
 
-
     useEffect(() => {
         const loadUserData = async () => {
             const clientCartData = await localStorage.getItem('codeburger: cartInfo')
@@ -57,8 +56,6 @@ export const useCart = () => {
     return context
 
 }
-
-
 
 CardProvider.propTypes = {
     children: PropTypes.node
