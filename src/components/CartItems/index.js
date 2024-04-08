@@ -1,9 +1,9 @@
 import React from 'react'
+import cartEmpty from '../../assets/emptycart.png'
 import { useCart } from '../../hooks/CartContext'
 import formatCurrency from '../../utils/formatCurrency'
-
 import {
-    Container, Header, Body
+    Container, Header, Body, EmptyCart
 
 } from './styles'
 
@@ -20,15 +20,21 @@ export function CartItems() {
                 <p>Total</p>
             </Header>
 
-            {cartProducts && cartProducts.map(product => (
-                <Body key={product.id}>
-                    <img src={product.url} />
-                    <p>{product.name}</p>
-                    <p>{formatCurrency(product.price)}</p>
-                    <p>{product.quantity}</p>
-                    <p>{formatCurrency(product.quantity * product.price)}</p>
-                </Body>
-            ))}
+            {cartProducts && cartProducts.legth > 0 ? (
+                cartProducts.map(product => (
+                    <Body key={product.id}>
+
+                        <img src={product.url} alt='Imagem produto' />
+                        <p>{product.name}</p>
+                        <p>{formatCurrency(product.price)}</p>
+                        <p>{product.quantity}</p>
+                        <p>{formatCurrency(product.quantity * product.price)}</p>
+                    </Body>
+                ))
+            )
+                : (
+                    <EmptyCart>Carrinho Vazio<img src={cartEmpty} alt='Cart empty' /></EmptyCart>
+                )}
 
         </Container>
     )
