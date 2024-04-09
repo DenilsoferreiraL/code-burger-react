@@ -27,6 +27,15 @@ export const CardProvider = ({ children }) => {
         await localStorage.setItem('codeburger: cartInfo', JSON.stringify(newCartProducts))
     }
 
+    //função para deletar o produto
+    const deleteProduct = async productId => {
+        const newCart = cartProducts.filter(product => product.id !== productId)
+
+        setCartProducts(newCart)
+
+        await localStorage.setItem('codeburger: cartInfo', JSON.stringify(newCart))
+    }
+
     // função para aumentar a quantidade de produtos no carrinho.
     const increaseProducts = async productId => {
         const newCart = cartProducts.map(product => {
@@ -52,7 +61,6 @@ export const CardProvider = ({ children }) => {
         }
     }
 
-
     useEffect(() => {
         const loadUserData = async () => {
             const clientCartData = await localStorage.getItem('codeburger: cartInfo')
@@ -65,7 +73,7 @@ export const CardProvider = ({ children }) => {
     }, [])
 
     return (
-        <CartContext.Provider value={{ putProductsInCart, cartProducts, increaseProducts, decreaseProducts }}>
+        <CartContext.Provider value={{ putProductsInCart, cartProducts, increaseProducts, decreaseProducts, deleteProduct }}>
             {children}
         </CartContext.Provider>
     )

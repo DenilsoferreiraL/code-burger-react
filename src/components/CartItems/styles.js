@@ -9,7 +9,7 @@ width: max-content;
 `
 export const Header = styled.div`
 display: grid;
-grid-template-columns: repeat(5, 1fr);
+grid-template-columns: repeat(6, 1fr);
 padding: 10px;
 border-bottom: 1px solid #FD874C;
 
@@ -20,7 +20,7 @@ p{
 `
 export const Body = styled.div`
 display: grid;
-grid-template-columns: repeat(5, 1fr);
+grid-template-columns: repeat(6, 1fr);
 width: max-content;
 padding: 10px;
 grid-gap: 10px 15px;
@@ -52,7 +52,24 @@ display: flex;
 margin-top: 5px;
    }
 }
+
+.trash-product{
+    img{
+        width: 30px;
+        margin-top: 3px;
+        cursor: pointer;
+    }
+
+    img:hover{
+        opacity:0.8 ;
+    }
+
+    img:active{
+        opacity:0.6 ;
+    }
+}
 `
+
 
 export const EmptyCart = styled.p`
 padding: 20px;
