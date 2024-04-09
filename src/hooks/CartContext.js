@@ -27,6 +27,15 @@ export const CardProvider = ({ children }) => {
         await localStorage.setItem('codeburger: cartInfo', JSON.stringify(newCartProducts))
     }
 
+    // função para aumentar a quantidade de produtos no carrinho.
+    const increaseProduct = async productId => {
+        const newCart = cartProducts.map(product => {
+            return product.id === productId ? { ...product, quantity: product.quantity + 1 } : product
+        })
+        setCartProducts(newCart)
+        await localStorage.setItem('codeburger: cartInfo', JSON.stringify(newCart))
+    }
+
 
     useEffect(() => {
         const loadUserData = async () => {
@@ -40,7 +49,7 @@ export const CardProvider = ({ children }) => {
     }, [])
 
     return (
-        <CartContext.Provider value={{ putProductsInCart, cartProducts }}>
+        <CartContext.Provider value={{ putProductsInCart, cartProducts, increaseProduct }}>
             {children}
         </CartContext.Provider>
     )

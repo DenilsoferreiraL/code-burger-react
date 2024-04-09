@@ -8,7 +8,7 @@ import {
 } from './styles'
 
 export function CartItems() {
-    const { cartProducts } = useCart()
+    const { cartProducts, increaseProduct } = useCart()
     return (
 
         <Container>
@@ -31,7 +31,7 @@ export function CartItems() {
                             <div className='quantity-container'>
                                 <button>-</button>
                                 <p>{product.quantity}</p>
-                                <button>+</button>
+                                <button onClick={() => increaseProduct(product.id)}>+</button>
                             </div>
                             <p>{formatCurrency(product.quantity * product.price)}</p>
                         </Body>
