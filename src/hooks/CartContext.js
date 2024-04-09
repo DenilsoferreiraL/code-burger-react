@@ -28,12 +28,28 @@ export const CardProvider = ({ children }) => {
     }
 
     // função para aumentar a quantidade de produtos no carrinho.
-    const increaseProduct = async productId => {
+    const increaseProducts = async productId => {
         const newCart = cartProducts.map(product => {
             return product.id === productId ? { ...product, quantity: product.quantity + 1 } : product
         })
         setCartProducts(newCart)
+
         await localStorage.setItem('codeburger: cartInfo', JSON.stringify(newCart))
+    }
+
+    // função para diminuir a quantidade de produtos no carrinho.
+    const decreaseProducts = async productId => {
+        const cartIndex = cartProducts.findIndex(pd => pd.id === productId)
+
+        if (cartProducts[cartIndex].quantity > 1) {
+            const newCart = cartProducts.map(product => {
+                return product.id === productId ? { ...product, quantity: product.quantity - 1 } : product
+            })
+
+            setCartProducts(newCart)
+
+            await localStorage.setItem('codeburger: cartInfo', JSON.stringify(newCart))
+        }
     }
 
 
@@ -49,7 +65,7 @@ export const CardProvider = ({ children }) => {
     }, [])
 
     return (
-        <CartContext.Provider value={{ putProductsInCart, cartProducts, increaseProduct }}>
+        <CartContext.Provider value={{ putProductsInCart, cartProducts, increaseProducts, decreaseProducts }}>
             {children}
         </CartContext.Provider>
     )
