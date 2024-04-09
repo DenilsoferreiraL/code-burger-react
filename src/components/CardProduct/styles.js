@@ -13,6 +13,28 @@ div{
     flex-direction: column;
     justify-content: space-between;
 }
+
+.quantity-container{
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    padding: 10px 0 15px;
+    justify-content: center;
+
+   button{
+    height: 30px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+   }
+
+   p{
+    margin-top: 5px;
+   }
+
+}
+
 `
 export const Image = styled.img`
 width: 150px;
@@ -33,3 +55,4 @@ line-height: normal;
 color: #000;
 margin-top: 25px;
 `
+

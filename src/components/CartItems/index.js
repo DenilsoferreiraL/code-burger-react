@@ -47,7 +47,6 @@ export function CartItems() {
                         <EmptyCart>Carrinho Vazio<img src={cartEmpty} alt='Cart empty' /></EmptyCart>
                     )
             }
-
         </Container >
     )
 }
