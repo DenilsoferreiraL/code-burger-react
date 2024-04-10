@@ -11,7 +11,7 @@ import {
 
 export function CardProduct({ product }) {
 
-    const { cartProducts, putProductsInCart, increaseProducts, decreaseProducts } = useCart()
+    const {  putProductsInCart, increaseProducts, decreaseProducts } = useCart()
 
     return (
         <Container>
