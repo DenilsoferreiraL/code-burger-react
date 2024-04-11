@@ -11,11 +11,10 @@ export const CardProvider = ({ children }) => {
 
         let newCartProducts = 1
 
-        if (cartIndex > 0) {
-            newCartProducts = cartProducts
+        if (cartIndex >= 0) {
+            newCartProducts = [...cartProducts]
 
-            newCartProducts[cartIndex].quantity =
-                newCartProducts[cartIndex].quantity + 1
+            newCartProducts[cartIndex].quantity += 1
 
             setCartProducts(newCartProducts)
 
