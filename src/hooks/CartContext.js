@@ -13,20 +13,16 @@ export const CardProvider = ({ children }) => {
     const putProductsInCart = async product => {
         const cartIndex = cartProducts.findIndex(prd => prd.id === product.id)
 
-        let newCartProducts = 1
+        let newCartProducts = [...cartProducts]
 
         if (cartIndex >= 0) {
-            newCartProducts = [...cartProducts]
-
-            newCartProducts[cartIndex].quantity += 1
-
-            setCartProducts(newCartProducts)
-
+            newCartProducts[cartIndex].quantity += product.quantity
         } else {
-            product.quantity = 1
-            newCartProducts = [...cartProducts, product]
-            setCartProducts(newCartProducts)
+            product.quantity = product.quantity || 1
+            newCartProducts.push(product)
         }
+
+        setCartProducts(newCartProducts)
         await updateLocalStorage(newCartProducts)
     }
 
