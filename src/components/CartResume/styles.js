@@ -46,6 +46,28 @@ margin-top: 50px;
 }
 `
 
+export const BoxTax = styled.div`
+margin-top: 20px;
+display: flex;
+justify-content:center ;
+align-items: center;
+
+input{
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+label {
+    padding: 15px;
+    font-weight: bolder;
+    font-size: 18px;
+}
+`
+
 
 
 
