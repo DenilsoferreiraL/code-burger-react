@@ -10,7 +10,7 @@ width: max-content;
 export const Header = styled.div`
 display: grid;
 grid-template-columns: repeat(6, 1fr);
-padding: 10px;
+padding: 15px;
 border-bottom: 1px solid #FD874C;
 
 p{
@@ -70,18 +70,17 @@ margin-top: 5px;
 }
 `
 
-
 export const EmptyCart = styled.p`
-padding: 20px;
-gap: 10px;
-display: flex;
-justify-content: center;
-align-items: center;
-font-size: 18px;
-font-weight: bold;
+    padding: 20px;
+    width: max-content;
+    height: 105%;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
 
 img{
-
     width: 40px;
 }
 `
