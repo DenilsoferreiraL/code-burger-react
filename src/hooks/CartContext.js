@@ -11,9 +11,10 @@ export const CardProvider = ({ children }) => {
     }
 
     const putProductsInCart = async product => {
+
         const cartIndex = cartProducts.findIndex(prd => prd.id === product.id)
 
-        let newCartProducts = [...cartProducts]
+        let newCartProducts = cartProducts
 
         if (cartIndex >= 0) {
             newCartProducts[cartIndex].quantity += product.quantity

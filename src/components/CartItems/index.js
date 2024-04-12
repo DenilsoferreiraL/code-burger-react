@@ -25,11 +25,12 @@ export function CartItems() {
             {
                 cartProducts && cartProducts.length > 0 ? (
                     cartProducts.map(product => (
-                        <Body key={product.id}>
+                        < Body key = { product.id } >
 
                             <img src={product.url} alt='Imagem produto' />
                             <p>{product.name}</p>
                             <p>{formatCurrency(product.price)}</p>
+                            
                             <div className='quantity-container'>
                                 <button onClick={() => decreaseProducts(product.id)}>-</button>
                                 <p>{product.quantity}</p>
@@ -40,13 +41,13 @@ export function CartItems() {
                             <img onClick={()=> deleteProduct(product.id)} src={trashCart} alt='Lixeira'></img>
                             </div>
                         </Body>
-                        
-                    ))
+
+    ))
                 )
                     : (
-                        <EmptyCart>Carrinho Vazio<img src={cartEmpty} alt='Cart empty' /></EmptyCart>
-                    )
-            }
+        <EmptyCart>Carrinho Vazio<img src={cartEmpty} alt='Cart empty' /></EmptyCart>
+    )
+}
         </Container >
     )
 }
