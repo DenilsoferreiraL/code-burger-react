@@ -6,14 +6,17 @@ import { CartItems } from '../../components'
 
 import {
     ContainerBackgroud,
-    CartImg
+    CartImg,
+    Wrapper
 } from './styles'
 
 export function Cart() {
     return (
         <ContainerBackgroud>
             <CartImg src={CartLogo} />
-            <CartItems />
+            <Wrapper>
+                <CartItems />
+            </Wrapper>
         </ContainerBackgroud>
     )
 }
