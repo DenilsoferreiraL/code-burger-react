@@ -16,7 +16,7 @@ export function CartItems() {
                     <p>Itens</p>
                     <p style={{ marginLeft: 10 }}>Preço</p>
                     <p style={{ paddingRight: 30, marginLeft: 5 }}>Quantidade</p>
-                    <p style={{ marginLeft: 10 }}>Total</p>
+                    <p style={{ marginLeft: 15 }}>Total</p>
                     <p></p>
                 </Header>
             )}
