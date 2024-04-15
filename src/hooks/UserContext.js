@@ -11,10 +11,15 @@ export const UserProvider = ({ children }) => {
         //Gravar no localStorage
         await localStorage.setItem('codeburger: userData', JSON.stringify(userInfo))
     }
+
+    const logout = async () => {
+        await localStorage.removeItem('codeburger: userData')
+    }
+
     //Recuperar dados do localStorage
     useEffect(() => {
         const loadUserData = async () => {
-            const clientInfo = await localStorage.getItem('codeburger: userData') 
+            const clientInfo = await localStorage.getItem('codeburger: userData')
             // Se encontrar o cadastro, carrega os dados
             if (clientInfo) {
                 setUserData(JSON.parse(clientInfo))
@@ -24,7 +29,7 @@ export const UserProvider = ({ children }) => {
     }, [])
 
     return (
-        <UserContext.Provider value={{ putUserData, userData }}>
+        <UserContext.Provider value={{ putUserData, userData, logout }}>
             {children}
         </UserContext.Provider>
     )

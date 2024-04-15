@@ -39,6 +39,7 @@ font-size: 14px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
+cursor: pointer;
 `
 export const ContainerText = styled.div`
 
