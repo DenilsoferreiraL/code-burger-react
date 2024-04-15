@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { Header } from '../components/Header'
 
 
 function PrivateRoute({ component, ...rest }) {
@@ -12,7 +13,12 @@ function PrivateRoute({ component, ...rest }) {
         return <Redirect to="/login" />
     }
     // Se houver usuário, renderiza a rota correspondente
-    return <Route {...rest} component={component} />
+    return (
+        <>
+            <Header />
+            <Route {...rest} component={component} />
+        </>
+        )
 }
 
 export default PrivateRoute

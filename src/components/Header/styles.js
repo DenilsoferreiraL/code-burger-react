@@ -2,16 +2,18 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 height: 72px;
+padding: 30px;
 background-color: #ffffff;
 box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.15);
 display: flex;
 align-items: center;
-justify-content: space-around;
+justify-content: space-between;
 flex-direction: row;
 `
 export const ContainerLeft = styled.div`
 display: flex;
 gap: 30px;
+margin-left: 50px;
 `
 export const PageLink = styled.a`
 cursor: pointer;

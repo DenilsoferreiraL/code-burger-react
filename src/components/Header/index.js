@@ -23,7 +23,7 @@ export function Header() {
                 </PageLink>
             </ContainerLeft >
             <ContainerRight>
-                <PageLink>
+                <PageLink onClick={() => push('/carrinho')}>
                     <img src={Cart} alt='Carrinho' />
                 </PageLink>
                 <Line></Line>
