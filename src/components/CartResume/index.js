@@ -6,9 +6,9 @@ import { useCart } from '../../hooks/CartContext'
 import api from '../../services/api'
 import { toast } from 'react-toastify'
 
-
 export function CartResume() {
     const [finalPrice, setFinalPrice] = useState(0)
+    const [totalItemsPrice, setTotalItemsPrice] = useState(0) // Adicionamos um novo estado para o preço total dos itens
     const [includeDelivery, setIncludeDelivery] = useState(true) // Estado para controlar se a taxa de entrega está incluída
     const deliveryTax = 5 // Taxa de entrega fixa
 
@@ -19,9 +19,12 @@ export function CartResume() {
             return current.price * current.quantity + acc
         }, 0)
 
-        setFinalPrice(sumAllItems + (includeDelivery ? deliveryTax : 0)) // Adiciona a taxa de entrega se estiver marcado
+        setTotalItemsPrice(sumAllItems)
+    }, [cartProducts])
 
-    }, [cartProducts, includeDelivery])
+    useEffect(() => {
+        setFinalPrice(totalItemsPrice + (includeDelivery ? deliveryTax : 0))
+    }, [totalItemsPrice, includeDelivery])
 
     const submitOrder = async () => {
         const order = cartProducts.map(product => {
@@ -33,7 +36,6 @@ export function CartResume() {
             success: 'Pedido realizado com sucesso',
             error: 'Falha ao tentar realizar seu pedido, tente novamente'
         })
-
     }
 
     return (
@@ -42,13 +44,13 @@ export function CartResume() {
                 <div className='container-top'>
                     <h2 className='title'>Resumo do Pedido</h2>
                     <p className='itens'>Itens</p>
-                    <p className='items-price'>{formatCurrency(finalPrice)}</p>
+                    <p className='items-price'>{formatCurrency(totalItemsPrice)}</p> {/* Exibe o preço total dos itens */}
                     <p className='delivery-tax'>Taxa de entrega</p>
                     <p className='delivery-tax-price'>{formatCurrency(deliveryTax)}</p>
                 </div>
                 <div className='container-bottom'>
                     <p>Total</p>
-                    <p>{formatCurrency(finalPrice)}</p> {/* Total sem a taxa de entrega */}
+                    <p>{formatCurrency(finalPrice)}</p> {/* Total incluindo a taxa de entrega */}
                 </div>
             </Container>
             <BoxTax>
@@ -65,4 +67,3 @@ export function CartResume() {
         </div>
     )
 }
-
