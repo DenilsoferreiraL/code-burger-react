@@ -13,7 +13,7 @@ function Routes() {
                 <PrivateRoute exact component={Home} path="/" />
                 <PrivateRoute component={Products} path="/produtos" />
                 <PrivateRoute component={Cart} path="/carrinho" />
-                <PrivateRoute component={Admin} path="/pedidos" />
+                <PrivateRoute component={Admin} path="/pedidos" isAdmin />
             </Switch>
         </Router>
     )

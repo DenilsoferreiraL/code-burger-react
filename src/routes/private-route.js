@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Header } from '../components/Header'
 
 
-function PrivateRoute({ component, ...rest }) {
+function PrivateRoute({ component, isAdmin, ...rest }) {
     // Verifica se há um usuário autenticado armazenado no localStorage
     const user = localStorage.getItem('codeburger:userData')
 
@@ -15,15 +15,16 @@ function PrivateRoute({ component, ...rest }) {
     // Se houver usuário, renderiza a rota correspondente
     return (
         <>
-            <Header />
+            {!isAdmin && < Header />}
             <Route {...rest} component={component} />
         </>
-        )
+    )
 }
 
 export default PrivateRoute
 
 // Define os tipos das propriedades esperadas pelo componente
 PrivateRoute.propTypes = {
-    component: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
+    component: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
+    isAdmin: PropTypes.bool
 }
