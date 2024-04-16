@@ -6,7 +6,7 @@ import { Header } from '../components/Header'
 
 function PrivateRoute({ component, ...rest }) {
     // Verifica se há um usuário autenticado armazenado no localStorage
-    const user = localStorage.getItem('codeburger: userData')
+    const user = localStorage.getItem('codeburger:userData')
 
     // Se não houver usuário, redireciona para a página de login
     if (!user) {

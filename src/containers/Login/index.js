@@ -18,16 +18,14 @@ import {
     Error
 } from './styles'
 
-import {Button} from '../../components'
+import { Button } from '../../components'
 import Logo from '../../assets/logo.svg'
 
 
 export function Login() {
     const history = useHistory()
 
-    const { putUserData, userData } = useUser()
-    console.log(userData)
-
+    const { putUserData } = useUser()
 
     const schema = Yup.object().shape({
         email: Yup.string().email("Digite um e-mail válido.").required("O e-mail é obrigatório."),
@@ -59,7 +57,12 @@ export function Login() {
         putUserData(data)
 
         setTimeout(() => {
-            history.push('/')
+            if (data.admin) {
+                history.push('/pedidos')
+            } else {
+                history.push('/')
+            }
+
         }, 1000);
 
 

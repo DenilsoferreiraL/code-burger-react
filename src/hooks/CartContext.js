@@ -7,7 +7,7 @@ export const CardProvider = ({ children }) => {
     const [cartProducts, setCartProducts] = useState([])
 
     const updateLocalStorage = async products => {
-        await localStorage.setItem('codeburger: cartInfo', JSON.stringify(products))
+        await localStorage.setItem('codeburger:cartInfo', JSON.stringify(products))
     }
 
     const putProductsInCart = async product => {
@@ -63,7 +63,7 @@ export const CardProvider = ({ children }) => {
 
     useEffect(() => {
         const loadUserData = async () => {
-            const clientCartData = await localStorage.getItem('codeburger: cartInfo')
+            const clientCartData = await localStorage.getItem('codeburger:cartInfo')
 
             if (clientCartData) {
                 setCartProducts(JSON.parse(clientCartData))
