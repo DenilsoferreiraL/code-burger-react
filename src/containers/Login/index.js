@@ -55,7 +55,6 @@ export function Login() {
         )
 
         putUserData(data)
-
         setTimeout(() => {
             if (data.admin) {
                 history.push('/pedidos')

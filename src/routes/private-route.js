@@ -12,6 +12,11 @@ function PrivateRoute({ component, isAdmin, ...rest }) {
     if (!user) {
         return <Redirect to="/login" />
     }
+
+   if(isAdmin && !JSON.parse(user).admin){
+    return <Redirect to="/" />
+   }
+
     // Se houver usuário, renderiza a rota correspondente
     return (
         <>
