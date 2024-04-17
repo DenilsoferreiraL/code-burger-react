@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
-//MUI
+import formatDate from '../../../utils/formatDate'; // Importe a função de formatação de data
+// MUI
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
@@ -37,7 +38,7 @@ function Row({ row }) {
                     {row.orderId}
                 </TableCell>
                 <TableCell>{row.name}</TableCell>
-                <TableCell>{row.date}</TableCell>
+                <TableCell>{formatDate(row.date)}</TableCell> {/* Aqui formatamos a data */}
                 <TableCell>{row.status}</TableCell>
             </TableRow>
             <TableRow>
@@ -79,7 +80,7 @@ function Row({ row }) {
     );
 }
 
-TableRow.propTypes = {
+Row.propTypes = {
     row: PropTypes.shape({
         name: PropTypes.string.isRequired,
         orderId: PropTypes.string.isRequired,
@@ -95,4 +96,4 @@ TableRow.propTypes = {
     }).isRequired
 };
 
-export default Row   
+export default Row;
