@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import formatDate from '../../../utils/formatDate';
 import api from '../../../services/api';
+import ReactSelect from 'react-select'
+import status from './order-status  '
 
 // MUI
 import Box from '@mui/material/Box';
@@ -13,7 +14,6 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
@@ -44,8 +44,10 @@ function Row({ row }) {
                     {row.orderId}
                 </TableCell>
                 <TableCell>{row.name}</TableCell>
-                <TableCell>{formatDate(row.date)}</TableCell> {/* Aqui formatamos a data */}
-                <TableCell>{row.status}</TableCell>
+                <TableCell>{row.date}</TableCell>
+                <TableCell>
+                    <ReactSelect options={status} />
+                </TableCell>
             </TableRow>
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
