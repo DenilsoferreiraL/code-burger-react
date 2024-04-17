@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import formatDate from '../../../utils/formatDate'; // Importe a função de formatação de data
+import formatDate from '../../../utils/formatDate';
+import api from '../../../services/api';
+
 // MUI
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
@@ -18,10 +20,14 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {
     ProductsImg
 } from './styles'
-
 function Row({ row }) {
     const [open, setOpen] = React.useState(false);
 
+
+    async function setNewStatus(id, status) {
+        await api.put(`orders/${id}`, { status });
+
+    }
     return (
         <React.Fragment>
             <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>

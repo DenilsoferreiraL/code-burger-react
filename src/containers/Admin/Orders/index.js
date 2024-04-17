@@ -26,9 +26,9 @@ function Orders() {
         }
         loadOrders();
     }, []);
-    
+
     function createData(order) {
-        
+
         return {
             name: order.user.name,
             orderId: order._id,
