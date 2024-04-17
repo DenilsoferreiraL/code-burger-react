@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import api from '../../../services/api';
 import ReactSelect from 'react-select'
-import status from './order-status  '
+import status from './order-status'
 
 // MUI
 import Box from '@mui/material/Box';
@@ -22,10 +22,17 @@ import {
 } from './styles'
 function Row({ row }) {
     const [open, setOpen] = React.useState(false);
-
+    const [isloading, setIsloading] = React.useState(false);
 
     async function setNewStatus(id, status) {
-        await api.put(`orders/${id}`, { status });
+        setIsloading(true)
+        try {
+            await api.put(`orders/${id}`, { status });
+        } catch (err) {
+            console.error(err)
+        } finally {
+            setIsloading(false)
+        }
 
     }
     return (
@@ -46,7 +53,16 @@ function Row({ row }) {
                 <TableCell>{row.name}</TableCell>
                 <TableCell>{row.date}</TableCell>
                 <TableCell>
-                    <ReactSelect options={status} />
+                    <ReactSelect options={status}
+                        menuPortalTarget={document.body}
+                        placeholder="Status"
+                        defaultValue={status.find(options => options.value === row.status) || null
+                        }
+                        onChange={newStatus => {
+                            setNewStatus(row.orderId, newStatus.value)
+                        }}
+                        isLoading={isloading}
+                         />
                 </TableCell>
             </TableRow>
             <TableRow>
