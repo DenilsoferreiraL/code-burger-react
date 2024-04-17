@@ -23,7 +23,6 @@ function Orders() {
     useEffect(() => {
         async function loadOrders() {
             const { data } = await api.get('orders')
-            console.log(data)
             setOrders(data)
         }
 
@@ -31,6 +30,7 @@ function Orders() {
     }, [])
 
     function createData(order) {
+        
         return {
             name: order.user.name,
             orderId: order._id,

@@ -6,6 +6,7 @@ import {
 } from './styles'
 
 export function Admin() {
+   
     return (
         <Container>
            <Orders/>
