@@ -7,19 +7,18 @@ import IconButton from '@mui/material/IconButton';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
+
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 import {
-
+    ProductsImg
 } from './styles'
 
-function Row({row}) {
+function Row({ row }) {
     const [open, setOpen] = React.useState(false);
 
     return (
@@ -58,15 +57,15 @@ function Row({row}) {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {row.products.map((productRow) => (
+                                    {row.products && row.products.map((productRow) => (
                                         <TableRow key={productRow.id}>
                                             <TableCell component="th" scope="row">
                                                 {productRow.quantity}
                                             </TableCell>
                                             <TableCell>{productRow.name}</TableCell>
-                                            <TableCell >{productRow.category}</TableCell>
-                                            <TableCell >
-                                                <img src={productRow.url} alt='Imagem-do-produto' />
+                                            <TableCell>{productRow.category}</TableCell>
+                                            <TableCell>
+                                                <ProductsImg src={productRow.url} alt='Imagem-do-produto' />
                                             </TableCell>
                                         </TableRow>
                                     ))}
