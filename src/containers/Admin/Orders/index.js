@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../../services/api';
 import formatDate from '../../../utils/formatDate';
-
+import status from './order-status'
 // MUI
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -10,11 +10,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Container } from './styles';
+import { Container, LinkMenu, Menu } from './styles';
 import Row from './row';
 
 function Orders() {
     const [orders, setOrders] = useState([]);
+    const [filteredOrders, setFilteredOrders] = useState([]);
     const [rows, setRows] = useState([])
 
 
@@ -22,8 +23,8 @@ function Orders() {
         async function loadOrders() {
             try {
                 const { data } = await api.get('orders');
-                console.log(data)
                 setOrders(data);
+                setFilteredOrders(data)
             } catch (error) {
                 console.error('Erro ao carregar pedidos:', error);
             }
@@ -32,6 +33,7 @@ function Orders() {
     }, []);
 
     function createData(order) {
+
         return {
             name: order.user.name,
             orderId: order._id,
@@ -42,13 +44,25 @@ function Orders() {
     }
 
     useEffect(() => {
-        const newRows = orders.map(ord => createData(ord));
+        const newRows = filteredOrders.map(ord => createData(ord));
         setRows(newRows);
-    }, [orders]);
-    
+    }, [filteredOrders]);
 
+    function handleStaus(status) {
+        if (status === 1) {
+            setFilteredOrders(orders)
+        }
+        else {
+            const newOrders = orders.filter(order => order.status === status.value)
+            setFilteredOrders(newOrders)
+        }
+
+    }
     return (
         <Container>
+            <Menu>
+                {status && status.map(status => <LinkMenu onClick={() => handleStaus(status)} key={status.id}>{status.label}</LinkMenu>)}
+            </Menu>
             <TableContainer component={Paper}>
                 <Table aria-label="collapsible table">
                     <TableHead>
