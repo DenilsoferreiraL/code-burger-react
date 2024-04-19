@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import api from '../../../services/api';
-import ReactSelect from 'react-select'
 import status from './order-status'
 
 // MUI
@@ -18,7 +17,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 import {
-    ProductsImg
+    ProductsImg, ReactSelectStyle
 } from './styles'
 function Row({ row }) {
     const [open, setOpen] = React.useState(false);
@@ -53,7 +52,7 @@ function Row({ row }) {
                 <TableCell>{row.name}</TableCell>
                 <TableCell>{row.date}</TableCell>
                 <TableCell>
-                    <ReactSelect options={status}
+                    <ReactSelectStyle options={status}
                         menuPortalTarget={document.body}
                         placeholder="Status"
                         defaultValue={status.find(options => options.value === row.status) || null
@@ -62,7 +61,7 @@ function Row({ row }) {
                             setNewStatus(row.orderId, newStatus.value)
                         }}
                         isLoading={isloading}
-                         />
+                    />
                 </TableCell>
             </TableRow>
             <TableRow>

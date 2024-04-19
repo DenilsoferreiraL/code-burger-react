@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ReactSelect from 'react-select'
 
 export const Container = styled.div`
 background: #efefef;
@@ -9,14 +10,11 @@ export const ProductsImg = styled.img`
 width: 70px;
 border-radius: 6px;
 `
-// export const CartImg = styled.img`
 
-// `
-// export const CartImg = styled.img`
+export const ReactSelectStyle = styled(ReactSelect)`
+width: 250px;
 
-// `
-// export const CartImg = styled.img`
-
-// `
-
-
+.css-13cymwt-control{
+cursor: pointer;
+}
+` 
