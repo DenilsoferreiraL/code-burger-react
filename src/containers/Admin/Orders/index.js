@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../../services/api';
 import formatDate from '../../../utils/formatDate';
+
 // MUI
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -15,10 +16,13 @@ import Row from './row';
 function Orders() {
     const [orders, setOrders] = useState([]);
     const [rows, setRows] = useState([])
+
+
     useEffect(() => {
         async function loadOrders() {
             try {
                 const { data } = await api.get('orders');
+                console.log(data)
                 setOrders(data);
             } catch (error) {
                 console.error('Erro ao carregar pedidos:', error);
@@ -28,7 +32,6 @@ function Orders() {
     }, []);
 
     function createData(order) {
-
         return {
             name: order.user.name,
             orderId: order._id,
@@ -42,6 +45,7 @@ function Orders() {
         const newRows = orders.map(ord => createData(ord));
         setRows(newRows);
     }, [orders]);
+    
 
     return (
         <Container>

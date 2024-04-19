@@ -11,8 +11,8 @@ export function CartResume() {
     const [totalItemsPrice, setTotalItemsPrice] = useState(0) // Adicionamos um novo estado para o preço total dos itens
     const [includeDelivery, setIncludeDelivery] = useState(true) // Estado para controlar se a taxa de entrega está incluída
     const deliveryTax = 5 // Taxa de entrega fixa
-
     const { cartProducts } = useCart()
+  
 
     useEffect(() => {
         const sumAllItems = cartProducts.reduce((acc, current) => {
