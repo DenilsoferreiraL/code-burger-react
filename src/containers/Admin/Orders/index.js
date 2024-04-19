@@ -15,6 +15,7 @@ import Row from './row';
 
 function Orders() {
     const [orders, setOrders] = useState([]);
+    const [activeStatus, setActiveStatus] = useState(1);
     const [filteredOrders, setFilteredOrders] = useState([]);
     const [rows, setRows] = useState([])
 
@@ -49,19 +50,20 @@ function Orders() {
     }, [filteredOrders]);
 
     function handleStaus(status) {
-        if (status === 1) {
+        if (status.id === 1) {
             setFilteredOrders(orders)
         }
         else {
             const newOrders = orders.filter(order => order.status === status.value)
             setFilteredOrders(newOrders)
         }
+        setActiveStatus(status.id)
 
     }
     return (
         <Container>
             <Menu>
-                {status && status.map(status => <LinkMenu onClick={() => handleStaus(status)} key={status.id}>{status.label}</LinkMenu>)}
+                {status && status.map(status => <LinkMenu onClick={() => handleStaus(status)} isActiveStatus={activeStatus === status.id} key={status.id}>{status.label}</LinkMenu>)}
             </Menu>
             <TableContainer component={Paper}>
                 <Table aria-label="collapsible table">

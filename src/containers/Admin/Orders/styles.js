@@ -27,6 +27,9 @@ margin: 20px;
 `
 
 export const LinkMenu = styled.a`
-color: #898989;
+color: #000;
 cursor: pointer;
+font-weight: ${props => (props.isActiveStatus ? 'bold' : '300')};
+border-bottom: ${props => (props.isActiveStatus ? '2px solid #FD874C' : 'none')};
+padding-bottom: 5px;
 `
