@@ -20,7 +20,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {
     ProductsImg, ReactSelectStyle
 } from './styles'
-function Row({ row }) {
+function Row({ row, setOrders, orders }) {
     const [open, setOpen] = React.useState(false);
     const [isloading, setIsloading] = React.useState(false);
 
@@ -28,6 +28,11 @@ function Row({ row }) {
         setIsloading(true)
         try {
             await api.put(`orders/${id}`, { status });
+
+            const newOrders = orders.map(order => {
+                return order._id === id ? { ...order, status } : order
+            })
+            setOrders(newOrders)
         } catch (err) {
             console.error(err)
         } finally {
@@ -105,6 +110,8 @@ function Row({ row }) {
 }
 
 Row.propTypes = {
+    orders: PropTypes.array,
+    setOrders: PropTypes.func,
     row: PropTypes.shape({
         name: PropTypes.string.isRequired,
         orderId: PropTypes.string.isRequired,
