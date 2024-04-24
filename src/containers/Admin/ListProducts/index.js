@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../../services/api'
+import formatCurrency from '../../../utils/formatCurrency'
+
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -10,7 +12,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import {
-    Container,
+    Container, Img
 } from './styles'
 
 function ListProducts() {
@@ -48,9 +50,11 @@ function ListProducts() {
                                 <TableCell component="th" scope="row">
                                     {product.name}
                                 </TableCell>
-                                <TableCell>{product.price}</TableCell>
+                                <TableCell>{formatCurrency(product.price)}</TableCell>
                                 <TableCell>{product.offer}</TableCell>
-                                <TableCell><img src={product.url} alt='Imagem-produto'/></TableCell>
+                                <TableCell>
+                                    <Img src={product.url} alt='Imagem-produto' />
+                                </TableCell>
                                 <TableCell><button>Editar</button></TableCell>
                             </TableRow>
                         ))}

@@ -4,8 +4,7 @@ import ListProducts from './ListProducts'
 import { SideMenuAdmin } from '../../components/SideMenuAdmin'
 
 import {
-    Container
-
+    Container,ContainerItems
 } from './styles'
 
 export function Admin() {
@@ -13,8 +12,10 @@ export function Admin() {
     return (
         <Container>
             <SideMenuAdmin />
-            {/* <Orders /> */}
-            <ListProducts/>
+            <ContainerItems>
+                {/* <Orders /> */}
+                <ListProducts />
+            </ContainerItems>
         </Container>
     )
 }
