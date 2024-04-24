@@ -19,16 +19,16 @@ align-items: center;
 padding-left: 20px;
 height: 60px;
 border-radius: 2px;
-background: #565656;
+background:${props => (props.isActive ? '#565656' : 'none')};
 margin: 18px;
 
 .icon{
-    color: #ffffff;
+    color: #FFFFFF;
 }
 `
 
 export const ListLink = styled(Link)`
-color: #ffffff;
+color: #FFFFFF;
 font-size: 16px;
 font-style: normal;
 font-weight: 400;
