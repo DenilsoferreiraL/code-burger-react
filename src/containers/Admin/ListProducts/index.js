@@ -4,7 +4,6 @@ import formatCurrency from '../../../utils/formatCurrency'
 
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import CancelIcon from '@mui/icons-material/Cancel';
-import EditIcon from '@mui/icons-material/Edit';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -53,26 +52,27 @@ function ListProducts() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {products.map((product) => (
-                            <TableRow
-                                key={product.name}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            >
-                                <TableCell align='center' component="th" scope="row">
-                                    {product.name}
-                                </TableCell>
-                                <TableCell align='center'>{formatCurrency(product.price)}</TableCell>
-                                <TableCell align='center' >
-                                    {isOffer(product.offer)}
-                                </TableCell>
-                                <TableCell align='center'>
-                                    <Img src={product.url} alt='Imagem-produto' />
-                                </TableCell>
-                                <TableCell align='center' >
-                                    <EditIconStyle />
-                                </TableCell>
-                            </TableRow>
-                        ))}
+                        {products &&
+                            products.map((product) => (
+                                <TableRow
+                                    key={product.name}
+                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                >
+                                    <TableCell align='center' component="th" scope="row">
+                                        {product.name}
+                                    </TableCell>
+                                    <TableCell align='center'>{formatCurrency(product.price)}</TableCell>
+                                    <TableCell align='center' >
+                                        {isOffer(product.offer)}
+                                    </TableCell>
+                                    <TableCell align='center'>
+                                        <Img src={product.url} alt='Imagem-produto' />
+                                    </TableCell>
+                                    <TableCell align='center' >
+                                        <EditIconStyle />
+                                    </TableCell>
+                                </TableRow>
+                            ))}
                     </TableBody>
                 </Table>
             </TableContainer>
