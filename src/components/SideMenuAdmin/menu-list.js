@@ -1,5 +1,6 @@
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 import paths from '../../constants/paths';
 
 const listLinks = [
@@ -14,6 +15,12 @@ const listLinks = [
         label: 'Listar Produtos',
         link: paths.Products,
         icon: ShoppingCartIcon
+    },
+    {
+        id: 3,
+        label: 'Novo Produto',
+        link: paths.NewProduct,
+        icon: AddBoxIcon
     }
 ]
 
