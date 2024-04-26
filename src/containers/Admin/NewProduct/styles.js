@@ -19,8 +19,24 @@ export const Label = styled.p`
 font-size: 15px;
 margin-bottom:5px ;
 `
+
+export const LabelUpload = styled.label`
+cursor: pointer;
+display: flex;
+align-items: center;
+border: 1px dashed #FFFFFF;
+padding: 10px;
+margin-bottom: 25px;
+
+input{
+    opacity: 0;
+    width: 1px;
+}
+`
+
 export const Input = styled.input`
 height: 40px;
+min-width: 280px;
 width:100% ;
 margin-bottom: 25px;
 background: #FFFFFF;
