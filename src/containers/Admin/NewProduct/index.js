@@ -4,6 +4,8 @@ import api from '../../../services/api'
 import ReactSelect from 'react-select';
 import { useForm, SubmitHandler } from "react-hook-form"
 
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+
 import {
     Container, Label, Input, ButtonStyles, LabelUpload
 } from './styles'
@@ -33,7 +35,12 @@ function NewProduct() {
                 <Input type='number' {...register("price")} />
 
                 <LabelUpload>
-                    {fileName ? fileName : ' Carregue a imagem do produto.'}
+                    {fileName ||
+                        <>
+                            <CloudUploadIcon />
+                            Carregue a imagem do produto
+                        </>
+                    }
 
                     <input
                         type='file'

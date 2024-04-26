@@ -27,11 +27,13 @@ align-items: center;
 border: 1px dashed #FFFFFF;
 padding: 10px;
 margin-bottom: 25px;
+gap: 10px;
 
 input{
     opacity: 0;
     width: 1px;
 }
+
 `
 
 export const Input = styled.input`
