@@ -68,14 +68,6 @@ font-size: 22px;
 border: ${props => props.error ? '3px solid #CC1717' : 'none'};
 `
 
-export const Error = styled.p`
-font-size: 15px;
-margin-top: 10px;
-line-height: 16px;
-color: #CC1717;
-text-align: center;
-`
-
 export const SignInLink = styled.p`
 margin-top: 35px;
 font-size: 15px;

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import { yupResolver } from "@hookform/resolvers/yup"
 import { toast } from 'react-toastify';
 
-import {Button} from '../../components'
+import { Button, ErrorMessage } from '../../components'
 import Logo from '../../assets/logo.svg'
 
 import {
@@ -16,8 +16,7 @@ import {
     Label,
     Input,
     SignInLink,
-    ContainerBlur,
-    Error
+    ContainerBlur
 } from './styles'
 
 
@@ -79,19 +78,19 @@ export function Register() {
 
                         <Label>Nome</Label>
                         <Input type='text'{...register("name")} error={errors.name?.message} />
-                        <Error>{errors.name?.message}</Error>
+                        <ErrorMessage>{errors.name?.message}</ErrorMessage>
 
                         <Label>Email</Label>
                         <Input type='email' {...register("email")} error={errors.email?.message} />
-                        <Error>{errors.email?.message}</Error>
+                        <ErrorMessage>{errors.email?.message}</ErrorMessage>
 
                         <Label>Senha</Label>
                         <Input type='password' {...register("password")} error={errors.password?.message} />
-                        <Error>{errors.password?.message}</Error>
+                        <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
                         <Label>Confirmar Senha</Label>
                         <Input type='password' {...register("confirmPassword")} error={errors.confirmPassword?.message} />
-                        <Error>{errors.confirmPassword?.message}</Error>
+                        <ErrorMessage>{errors.confirmPassword?.message}</ErrorMessage>
                         <div>
                             <Button type='submit' style={{ marginTop: 25 }}>Entrar</Button>
                         </div>

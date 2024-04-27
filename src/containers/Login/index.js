@@ -7,6 +7,8 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import { useUser } from '../../hooks/UserContext'
+import { Button, ErrorMessage } from '../../components'
+import Logo from '../../assets/logo.svg'
 
 import {
     BackgroundLogin,
@@ -15,11 +17,8 @@ import {
     Input,
     SignInLink,
     ContainerBlur,
-    Error
 } from './styles'
 
-import { Button } from '../../components'
-import Logo from '../../assets/logo.svg'
 
 
 export function Login() {
@@ -80,11 +79,11 @@ export function Login() {
 
                             <Label>Email</Label>
                             <Input type='email'{...register("email")} error={errors.email?.message} />
-                            <Error>{errors.email?.message}</Error>
+                            <ErrorMessage>{errors.email?.message}</ErrorMessage>
 
                             <Label>Senha</Label>
                             <Input type='password' {...register("password")} error={errors.password?.message} />
-                            <Error>{errors.password?.message}</Error>
+                            <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
                             <div>
                                 <Button type='submit' style={{ marginTop: 75 }}>Entrar</Button>
