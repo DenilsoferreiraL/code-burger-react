@@ -17,7 +17,7 @@ form{
 `
 export const Label = styled.p`
 font-size: 15px;
-
+margin-bottom: 10px;
 `
 
 export const LabelUpload = styled.label`

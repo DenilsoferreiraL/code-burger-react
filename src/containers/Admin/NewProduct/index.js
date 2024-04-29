@@ -13,12 +13,14 @@ import {
     Container, Label, Input, ButtonStyles, LabelUpload
 } from './styles'
 import { ErrorMessage } from '../../../components';
-
+import { toast } from 'react-toastify';
+import { useHistory } from 'react-router-dom';
 
 
 function NewProduct() {
     const [fileName, setFileName] = useState(null)
     const [categories, setCategories] = useState([])
+    const { push } = useHistory()
 
     const schema = Yup.object().shape({
         name: Yup.string().required("Digite o nome do produto"),
@@ -38,7 +40,25 @@ function NewProduct() {
         resolver: yupResolver(schema),
     })
 
-    const onSubmit = data => console.log(data)
+    const onSubmit = async data => {
+        const productFormData = new FormData()
+
+        productFormData.append('name', data.name)
+        productFormData.append('price', data.price)
+        productFormData.append('category_id', data.category.id)
+        productFormData.append('file', data.file[0])
+
+        await toast.promise(api.post('products', productFormData), {
+            pending: 'Criando novo produto...',
+            sucess: 'Criando com sucesso',
+            error: 'Falha ao criar o produto'
+        })
+
+        setTimeout(() => {
+            push('/listar-produtos')
+        }, 2000)
+
+    }
 
     useEffect(() => {
         async function loadCategories() {
