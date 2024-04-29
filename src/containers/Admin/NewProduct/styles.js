@@ -17,7 +17,7 @@ form{
 `
 export const Label = styled.p`
 font-size: 15px;
-margin-bottom:5px ;
+
 `
 
 export const LabelUpload = styled.label`
@@ -26,8 +26,8 @@ display: flex;
 align-items: center;
 border: 1px dashed #FFFFFF;
 padding: 10px;
-margin-bottom: 25px;
 gap: 10px;
+margin-top: 10px;
 
 input{
     opacity: 0;
@@ -40,7 +40,7 @@ export const Input = styled.input`
 height: 40px;
 min-width: 280px;
 width:100% ;
-margin-bottom: 25px;
+padding-left: 7px;
 background: #FFFFFF;
 box-shadow: 0px 4px 14px rgba(0,0,0,0.1);
 border-radius: 8px;
