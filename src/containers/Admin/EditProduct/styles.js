@@ -46,6 +46,20 @@ box-shadow: 0px 4px 14px rgba(0,0,0,0.1);
 border-radius: 8px;
 border: none;
 `
+
+export const ContainerInput = styled.div`
+display: flex;
+margin-top: 30px;
+justify-content: center;
+align-items: baseline;
+gap: 10px;
+
+input{
+   width: 15px;
+   height: 15px;
+   cursor: pointer;
+}
+`
 export const ButtonStyles = styled(Button)`
 width: 100%;
 margin-top: 25px;

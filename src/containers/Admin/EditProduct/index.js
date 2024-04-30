@@ -10,7 +10,7 @@ import * as Yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup"
 
 import {
-    Container, Label, Input, ButtonStyles, LabelUpload
+    Container, Label, Input, ButtonStyles, LabelUpload, ContainerInput
 } from './styles'
 import { ErrorMessage } from '../../../components';
 import { toast } from 'react-toastify';
@@ -21,19 +21,13 @@ function EdiProduct() {
     const [fileName, setFileName] = useState(null)
     const [categories, setCategories] = useState([])
     const { push, location: { state: { product } } } = useHistory()
-   
+
 
     const schema = Yup.object().shape({
         name: Yup.string().required("Digite o nome do produto"),
         price: Yup.string().required("Digite o preço do produto"),
         category: Yup.object().required("Escolha uma categoria"),
-        file: Yup.mixed().test('required', 'Carregue um arquivo', value => {
-            return value?.length > 0
-        }).test('fileSize', 'Carregue arquivos de até 2MB', value => {
-            return value[0]?.size <= 200000
-        }).test('Type', 'Carregue apenas arquivos JPEG', value => {
-            return value[0]?.type === 'image/jpeg' || value[0]?.type === 'image/png'
-        })
+        offer: Yup.bool()
     })
 
     const { register, handleSubmit, control, formState: { errors },
@@ -48,11 +42,12 @@ function EdiProduct() {
         productFormData.append('price', data.price)
         productFormData.append('category_id', data.category.id)
         productFormData.append('file', data.file[0])
+        productFormData.append('offer', data.offer)
 
-        await toast.promise(api.post('products', productFormData), {
-            pending: 'Criando novo produto...',
-            sucess: 'Criando com sucesso',
-            error: 'Falha ao criar o produto'
+        await toast.promise(api.put(`products/${product.id}`, productFormData), {
+            pending: 'Editando novo produto...',
+            sucess: 'Editado com sucesso',
+            error: 'Falha ao editar o produto'
         })
 
         setTimeout(() => {
@@ -74,11 +69,11 @@ function EdiProduct() {
         <Container>
             <form noValidate onSubmit={handleSubmit(onSubmit)}>
                 <Label>Nome</Label>
-                <Input type='text'  {...register("name")} />
+                <Input type='text'  {...register("name")} defaultValue={product.name} />
                 <ErrorMessage>{errors.name?.message}</ErrorMessage>
 
                 <Label>Preço</Label>
-                <Input type='number' {...register("price")} />
+                <Input type='number' {...register("price")} defaultValue={product.price} />
                 <ErrorMessage>{errors.price?.message}</ErrorMessage>
 
                 <LabelUpload>
@@ -111,12 +106,20 @@ function EdiProduct() {
                                 getOptionLabel={cat => cat.name}
                                 getOptionValue={cat => cat.id}
                                 placeholder="Categorias"
+                                defaultValue={product.category}
                             />
                         )
                     }}
                 >
                 </Controller>
                 <ErrorMessage>{errors.category?.message}</ErrorMessage>
+
+                <ContainerInput>
+                    <input type="checkbox"   {...register('offer')} defaultChecked={product.offer} />
+
+                    <Label>Produto em oferta?</Label>
+                </ContainerInput>
+
                 <ButtonStyles>Editar Produto</ButtonStyles>
 
             </form>

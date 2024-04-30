@@ -37,8 +37,9 @@ div{
 
 `
 export const Image = styled.img`
-width: 150px;
-border-radius: 10px;
+width: 155px;
+height: 155px;
+border-radius: 15px;
 `
 export const ProductName = styled.p`
 font-size: 16px;

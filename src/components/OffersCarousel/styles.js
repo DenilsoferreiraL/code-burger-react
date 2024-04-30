@@ -48,6 +48,7 @@ export const CategoryImg = styled.img`
 
 export const Image = styled.img`
 width: 250px;
+height: 250px;
 border-radius: 10px;
 margin-bottom: 16px;
 `

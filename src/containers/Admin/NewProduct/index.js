@@ -29,7 +29,7 @@ function NewProduct() {
         file: Yup.mixed().test('required', 'Carregue um arquivo', value => {
             return value?.length > 0
         }).test('fileSize', 'Carregue arquivos de até 2MB', value => {
-            return value[0]?.size <= 200000
+            return value[0]?.size <= 500000
         }).test('Type', 'Carregue apenas arquivos JPEG', value => {
             return value[0]?.type === 'image/jpeg' || value[0]?.type === 'image/png'
         })
