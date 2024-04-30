@@ -9,6 +9,7 @@ import {
     Container, ContainerItems
 } from './styles'
 import NewProduct from './NewProduct'
+import EditProduct from './EditProduct'
 
 export function Admin({ match: { path } }) {
 
@@ -19,6 +20,7 @@ export function Admin({ match: { path } }) {
                 {path === paths.Order && <Orders />}
                 {path === paths.Products && <ListProducts />}
                 {path === paths.NewProduct && <NewProduct />}
+                {path === paths.EditProduct && <EditProduct />}
             </ContainerItems>
         </Container>
     )
