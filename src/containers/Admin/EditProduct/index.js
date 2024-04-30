@@ -20,7 +20,8 @@ import { useHistory } from 'react-router-dom';
 function EdiProduct() {
     const [fileName, setFileName] = useState(null)
     const [categories, setCategories] = useState([])
-    const { push } = useHistory()
+    const { push, location: { state: { product } } } = useHistory()
+   
 
     const schema = Yup.object().shape({
         name: Yup.string().required("Digite o nome do produto"),
