@@ -62,7 +62,7 @@ export function Register() {
             }
 
         } catch (err) {
-            toast.error("Falaha no sistema! Tente novamente.")
+            toast.error("Falha no sistema! Tente novamente.")
         }
 
     }
